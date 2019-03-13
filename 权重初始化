@@ -1,0 +1,31 @@
+权重初始化方法（pytorch）
+以下tensor均为n维的torch.Tensor或autograd.Variable，fan_in、fan_out为输入输出维度
+调用函数torch.nn.init
+1.常数初始化
+constant_(tensor, val)
+val为填充的常数
+2.均匀初始化
+uniform_(tensor, a=0, b=1)
+从a到b均匀填充
+3.正态分布初始化
+normal_(tensor, mean=0, std=1)
+mean，std为均值和标准差
+4.Xavier均匀初始化
+xavier_uniform_(tensor, gain=1)
+值均匀填充自U(-a, a)，其中a= gain * sqrt( 2/(fan_in + fan_out))* sqrt(3)
+5.Xavier均匀初始化
+xavier_normal_(tensor, gain=1)
+均值为0，标准差为gain * sqrt(2/(fan_in + fan_out))的正态分布
+6.kaiming均匀分布
+kaiming_uniform_(tensor, a=0, mode='fan_in', nonlinearity='leaky_relu')
+7.单位矩阵初始化
+eye_(tensor)
+单位矩阵来填充2维输入张量或变量。在线性层尽可能多的保存输入特性
+8.正交初始化
+orthogonal_(tensor, gain=1)
+（半）正交矩阵填充
+9.稀疏初始化
+sparse_(tensor, sparsity, std=0.01)
+sparsity每列设置为零的比例，非零元素填充均值为0，标准差为std
+10.狄拉克&函数初始化
+dirac_(tensor)
